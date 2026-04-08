@@ -16,35 +16,34 @@ body {
     overflow-x: hidden;
     cursor: none;
 
+    scroll-snap-type: y mandatory;
+
+    position: relative;
+    z-index: 0;
+}
+
+/* 🔥 background blur layer (FIXED) */
+.bg-blur {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    animation: bgSlide 20s infinite;
 
-    scroll-snap-type: y mandatory;
+    animation: bgSlide 25s ease-in-out infinite;
+
+    filter: blur(14px) brightness(0.6);
+    transform: scale(1.1);
 }
 
-/* background slideshow */
+/* ✅ CORRECT animation */
 @keyframes bgSlide {
-   
     0%   { background-image: url("IMG-20251225-WA0086.jpg"); }
     33%  { background-image: url("IMG-20251225-WA0115.jpg"); }
     66%  { background-image: url("IMG-20251225-WA0444.jpg"); }
-   
-
-}
-
-/* blur layer */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: inherit;
-    filter: blur(14px) brightness(0.6);
-    transform: scale(1.1);
-    z-index: -1;
-
-    transition: background-image 1s ease-in-out;
+    100% { background-image: url("IMG-20251225-WA0086.jpg"); }
 }
 
 /* dark overlay */
@@ -203,6 +202,9 @@ button:hover {
 
 <body>
 
+<!-- 🔥 background layer -->
+<div class="bg-blur"></div>
+
 <div id="progress"></div>
 
 <!-- MUSIC -->
@@ -251,16 +253,16 @@ setInterval(()=>{
     <div class="glass">
         <h1>Happy Birthday Baby❤️</h1>
         <p>bhondu baby 💖</p>
-        <p style="font-size:13px; opacity:0.7;">i loveeeeee youu! </p>
+        <p style="font-size:13px; opacity:0.7;">i loveeeeee youu!</p>
     </div>
 </div>
 
 <!-- STORY -->
 <div class="section">
     <div class="glass">
-        <h1>my cutie patutieee </h1>
+        <h1>my cutie patutieee</h1>
         <p><i>MY FAVOURITEEE HOOMAN<br>
-            You make my days brighter, my mood better, and my life way more fun just by existing..</i></p>
+        You make my days brighter, my mood better, and my life way more fun just by existing..</i></p>
         <p style="font-size:13px; opacity:0.7;">you & me forever 💕</p>
     </div>
 </div>
@@ -268,7 +270,7 @@ setInterval(()=>{
 <!-- QUESTION -->
 <div class="section">
     <div class="glass">
-        <h1>would you still date me if i was a worm (click)🐛</h1>
+        <h1>would you still date me if i was a worm 🐛</h1>
         <button onclick="yesClick()">YES 💖</button>
         <button id="noBtn">bleeeeh 😏</button>
     </div>
@@ -284,12 +286,11 @@ setInterval(()=>{
 <!-- GALLERY -->
 <div class="section">
     <div class="glass">
-        <h1>Us 📸</h1>
+        <h1>Us </h1>
         <div class="gallery">
             <img src="IMG-20251225-WA0086.jpg" class="photo">
-            <img src="IMG-20251225-WA0115.jpg" class="photo">
-            <img src="IMG-20251225-WA0444.jpg" class="photo">
             
+            <img src="IMG-20251225-WA0444.jpg" class="photo">
         </div>
     </div>
 </div>
