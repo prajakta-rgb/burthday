@@ -197,6 +197,19 @@ button:hover {
     white-space:nowrap;
     overflow:hidden;
 }
+
+/* 💖 music button */
+#musicBtn {
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    z-index:1000;
+    padding:10px 15px;
+    border-radius:20px;
+    border:none;
+    background:#ff4da6;
+    color:white;
+}
 </style>
 </head>
 
@@ -207,9 +220,12 @@ button:hover {
 
 <div id="progress"></div>
 
-<!-- MUSIC -->
-<audio autoplay loop>
-  <source src="C:\Users\green multi pc\Downloads\nastelbom-happy-birthday-469282.mp3" type="audio/mpeg">
+<!-- 💖 MUSIC BUTTON -->
+<button id="musicBtn" onclick="toggleMusic()">click here 💖</button>
+
+<!-- 💖 AUDIO -->
+<audio id="bgMusic" loop>
+  <source src="nastelbom-happy-birthday-469282.mp3" type="audio/mpeg">
 </audio>
 
 <!-- HEARTS -->
@@ -251,9 +267,9 @@ setInterval(()=>{
 <!-- LANDING -->
 <div class="section show">
     <div class="glass">
-        <h1>Happy Birthday Baby❤️</h1>
+        <h1>Happy Birthday Param ! ❤️</h1>
         <p>bhondu baby 💖</p>
-        <p style="font-size:13px; opacity:0.7;">i loveeeeee youu!</p>
+        <p style="font-size:13px; opacity:0.7;">i loveeeeee youu shooo shooo much!</p>
     </div>
 </div>
 
@@ -289,7 +305,6 @@ setInterval(()=>{
         <h1>Us </h1>
         <div class="gallery">
             <img src="IMG-20251225-WA0086.jpg" class="photo">
-            
             <img src="IMG-20251225-WA0444.jpg" class="photo">
         </div>
     </div>
@@ -304,6 +319,20 @@ setInterval(()=>{
 </div>
 
 <script>
+// 💖 MUSIC TOGGLE
+function toggleMusic(){
+    let music = document.getElementById("bgMusic");
+    let btn = document.getElementById("musicBtn");
+
+    if(music.paused){
+        music.play();
+        btn.innerText = "💖 pyaaru baby...";
+    } else {
+        music.pause();
+        btn.innerText = "click clickkk ";
+    }
+}
+
 // scroll
 const sections=document.querySelectorAll(".section");
 window.addEventListener("scroll",()=>{
@@ -320,7 +349,7 @@ window.addEventListener("scroll",()=>{
 
 // NO button
 let noBtn=document.getElementById("noBtn");
-let msgs=["are you sure? 😏","think again 👀","last chance 😭","mat kar yaar 💔"];
+let msgs=["are you sure? 😏","think again 👀","huppppppppppp 😭","chuppppp 💔"];
 let i=0;
 
 noBtn.onmouseover=()=>{
@@ -359,12 +388,12 @@ function typeMessage(){
 // sparkles
 document.addEventListener("mousemove", e=>{
     let s=document.createElement("div");
-    s.innerHTML="✨";
+    s.innerHTML="💕";
     s.className="sparkle";
     s.style.left=e.clientX+"px";
     s.style.top=e.clientY+"px";
     document.body.appendChild(s);
-    setTimeout(()=>s.remove(),1000);
+    setTimeout(()=>s.remove(),100);
 });
 </script>
 
